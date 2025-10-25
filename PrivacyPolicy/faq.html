@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Product FAQ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0c6277;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .question {
+            color: #1dcc79;
+            font-size: 24px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .answer {
+            display: none;
+        }
+
+        p {
+            color: #0c6277;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Add a subtle hover effect for FAQ items */
+        .faq-item:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease-in-out;
+        }
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const questions = document.querySelectorAll('.question');
+
+            questions.forEach(question => {
+                question.addEventListener('click', function () {
+                    const answer = this.nextElementSibling;
+
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                    } else {
+                        answer.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <br />
+    <br />
+    <br />
+
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+
+        <div class="faq-item">
+            <h2 class="question">Question 1: How Can I Become a Travel Guide?</h2>
+            <div class="answer">
+                <p>Click on the hamburger menu and select 'Become a Travel Guide.' In the ensuing window, fill in your details and submit the application. Following the application, provide two documents for approval: one to confirm the correctness of your specified IBAN number and another to validate the accuracy of the provided information. Upon review and approval, you will officially become a travel guide.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="question">Question 2: Do I need a document to become a travel guide?</h2>
+            <div class="answer">
+                <p>
+                    To become a travel guide, ensure you meet the legal requirements in your country. If not, AyoTravel won't accept any responsibility. You are solely responsible for paying taxes on your earnings and obtaining the necessary legal documents.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="question">Question 3: After becoming a travel guide, is it possible to switch my guide status to passive?</h2>
+            <div class="answer">
+                <p>
+                    Yes, you can. Navigate to your profile, click on the three dots at the top left, and choose 'Edit My Profile.' Once on the Edit Profile page, you can deactivate your travel guide status.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="question">Question 4: The name, surname, e-mail, etc. that I entered. I cannot change the information. Can I change this information?</h2>
+            <div class="answer">
+                <p>
+                    As this information is sensitive, for any modifications, please contact us at contact@ayotechcorp.com
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h2 class="question">Question 5: How do I delete my AyoTravel account?</h2>
+            <div class="answer">
+                <ul>
+                    <li>
+                        <p>1. Log in to your account.</p>
+                    </li>
+                    <li>
+                        <p>2. Navigate to your profile settings.</p>
+                    </li>
+                    <li>
+                        <p>3. Look for the account deletion option.</p>
+                    </li>
+                    <li>
+                        <p>4. Follow the provided instructions to complete the account deletion process.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

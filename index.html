@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayotechcorp - In Pursuit of Innovation</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- jQuery & Easing for Smooth Scroll -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" xintegrity="sha512-0QbL0ph8VupDnc/g3GssEHMVCHunQySAcHvD/qCbqTAMglzA/KjU2QrFBGvSbfgyJkK6aPuHEWUguifFREK8IA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#29BAA3',
+                        secondary: '#36A5D6',
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        /* Additional custom styles */
+        body {
+            @apply font-sans;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            @apply font-montserrat;
+        }
+
+        /* Active link style for nav */
+        #header .main-nav .active > a {
+            @apply text-primary;
+        }
+
+        /* Style for the store buttons */
+        .store-button {
+            @apply inline-flex items-center gap-2 bg-gray-900 text-white font-semibold py-2 px-4 rounded-lg transition-all hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+        }
+
+        .store-button i {
+            @apply text-xl;
+        }
+        
+        @keyframes scroll-up {
+            from { transform: translateY(0); }
+            to { transform: translateY(-50%); }
+        }
+
+        @keyframes scroll-down {
+            from { transform: translateY(-50%); }
+            to { transform: translateY(0); }
+        }
+
+        .animate-scroll-up {
+            animation: scroll-up 22s linear infinite; 
+        }
+
+        .animate-scroll-down {
+            animation: scroll-down 25s linear infinite;
+        }
+
+    </style>
+
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!--==========================
+      Header
+    ============================-->
+    <header id="header" class="fixed-top w-full bg-white shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                <div class="logo float-left">
+                    <a href="#intro" class="scrollto">
+                        <!-- Using a placeholder for the logo -->
+                        <img src="./images/logo.png" alt="AyoTech Logo" class="h-8 w-auto">
+                    </a>
+                </div>
+
+                <nav class="main-nav float-right hidden lg:block">
+                    <ul class="flex space-x-8">
+                        <li class="active"><a href="#intro" class="scrollto text-gray-700 hover:text-primary font-semibold transition-colors">Homepage</a></li>
+                        <li> <a href="#about" class="scrollto text-gray-700 hover:text-primary font-semibold transition-colors">About Us</a></li>
+                        <li><a href="#contact" class="scrollto text-gray-700 hover:text-primary font-semibold transition-colors">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Button (optional, but good for responsiveness) -->
+                <div class="lg:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white shadow-lg">
+            <ul class="flex flex-col p-4 space-y-2">
+                <li class="active"><a href="#intro" class="scrollto-mobile block py-2 text-gray-700 hover:text-primary font-semibold">Homepage</a></li>
+                <li> <a href="#about" class="scrollto-mobile block py-2 text-gray-700 hover:text-primary font-semibold">About Us</a></li>
+                <li><a href="#contact" class="scrollto-mobile block py-2 text-gray-700 hover:text-primary font-semibold">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- #header -->
+
+    <!--==========================
+      Intro Section
+    ============================-->
+    <section id="intro" class="clearfix pt-16 min-h-screen flex items-center bg-gradient-to-br from-primary to-secondary">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                
+                <!-- Intro Text -->
+                <div class="intro-info w-full md:w-1/2 text-center md:text-left">
+                    <h2 class="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+                        In Pursuit of Innovation <br> and the Future...
+                    </h2>
+                    <p class="text-xl text-white/90 mb-8">Connecting travelers with local guides worldwide. Experience the world like a local.</p>
+                    <div>
+                        <a href="#about" class="scrollto inline-block bg-white text-secondary font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl">
+                            Learn More About Us
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Intro Image -->
+                <div class="intro-img w-full md:w-1/2 flex justify-center items-center pt-8 md:pt-0">
+                    <!-- Kayan Uygulama Görüntüleri (Sizin tarafınızdan eklenecek gerçek resimler için placeholder) -->
+                    <div class="relative h-[500px] max-w-lg w-full overflow-hidden rounded-lg shadow-2xl" style="mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);">
+                        <div class="absolute inset-0 flex justify-center gap-4 p-0">
+                            
+                            <!-- Sütun 1 (Aşağı Kayar) -->
+                            <div class="flex flex-col gap-4 animate-scroll-down w-40"> <!-- w-40 = 160px -->
+                                <!-- Resimler (Döngü için kopyalandı) -->
+                                <img src="./images/feeds.png" alt="Feeds" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                                <img src="./images/guides.png" alt="Guides" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                                <!-- Kopyalar -->
+                                <img src="./images/feeds.png" alt="Feeds" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                                <img src="./images/guides.png" alt="Guides" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                            </div>
+                            
+                            <!-- Sütun 2 (Yukarı Kayar) -->
+                            <div class="flex flex-col gap-4 animate-scroll-up w-40">
+                                <!-- Resimler (Döngü için kopyalandı) -->
+                                <img src="./images/appointment.png" alt="Appointments" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                                <img src="./images/articles.png" alt="Articles" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                                <!-- Kopyalar -->
+                                <img src="./images/appointment.png" alt="Appointments" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                                <img src="./images/articles.png" alt="Articles" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                            </div>
+
+                            <!-- Sütun 3 (Aşağı Kayar) -->
+                            <div class="flex flex-col gap-4 animate-scroll-down w-40">
+                                <!-- Resimler (Döngü için kopyalandı) -->
+                                <img src="./images/ayoclips.png" alt="AyoClips" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                                <img src="./images/chat.png" alt="Chat" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                                <!-- Kopyalar -->
+                                <img src="./images/ayoclips.png" alt="AyoClips" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                                <img src="./images/chat.png" alt="Chat" class="w-full rounded-lg shadow-lg flex-shrink-0">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- #intro -->
+
+    <main id="main">
+
+        <!--==========================
+         About Us Section
+       ============================-->
+        <section id="about" class="about-section py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+                <header class="section-header text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About AyoTravel</h3>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        AyoTravel is a multilingual mobile application that connects travelers with verified local tour guides around the world. Designed for both Android and iOS, AyoTravel offers a seamless platform where users can:
+                    </p>
+                </header>
+
+                <!-- Feature List -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16">
+                    <div class="feature-box p-6">
+                        <i class="fas fa-search-location text-4xl text-primary mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Discover Guides</h4>
+                        <p class="text-gray-600">Find professional local guides based on location and travel interests.</p>
+                    </div>
+                    <div class="feature-box p-6">
+                        <i class="fas fa-users text-4xl text-primary mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Build Community</h4>
+                        <p class="text-gray-600">Share and explore travel articles, photos, and videos from a global community.</p>
+                    </div>
+                    <div class="feature-box p-6">
+                        <i class="fas fa-globe-americas text-4xl text-primary mb-4"></i>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Go Local</h4>
+                        <p class="text-gray-600">Experience the world like a local, beyond typical tourist routes.</p>
+                    </div>
+                </div>
+
+                <!-- Mission Section -->
+                <div class="row about-extra grid md:grid-cols-2 gap-12 items-center">
+                    <div class="wow fadeInUp">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe class="w-full h-full rounded-lg shadow-lg" src="https://www.youtube.com/embed/BZyr4DoBknM?si=joZHmfrI9nHGn7Hi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="wow fadeInUp">
+                        <h4 class="text-2xl font-semibold text-primary mb-4">Our Mission with the AyoTravel Project</h4>
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            At AyoTravel, our goal is to transform the travel experience by making it more reliable, accessible, and budget-friendly. We aim to deliver the best travel experience to our users while turning AyoTravel into a global product that adds value to travelers around the world.
+                        </p>
+                        <p class="text-gray-700 mb-6">Our app is currently available on:</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://apps.apple.com/us/app/ayotravel/id6475484468" target="_blank" class="store-button">
+                                <i class="fab fa-apple"></i>
+                                <span>App Store</span>
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.ayotravel" target="_blank" class="store-button">
+                                <i class="fab fa-google-play"></i>
+                                <span>Google Play</span>
+                            </a>
+                            <a href="https://appgallery.huawei.com/app/C104839325" target="_blank" class="store-button">
+                                <i class="fab fa-houzz"></i> <!-- Using Houzz as a placeholder for Huawei -->
+                                <span>AppGallery</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- #about -->
+
+        <!--==========================
+          Contact Section
+        ============================-->
+        <section id="contact" class="py-16 md:py-24 bg-gray-50">
+            <div class="container-fluid mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="section-header text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Contact Us</h3>
+                </div>
+
+                <div class="row wow fadeInUp justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="bg-white p-8 md:p-12 rounded-lg shadow-xl max-w-lg mx-auto text-center">
+
+                            <!-- Email Section -->
+                            <div class="mb-8">
+                                <div class="flex justify-center mb-4">
+                                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-3xl text-primary"></i>
+                                    </div>
+                                </div>
+                                <h5 class="text-xl font-semibold text-gray-900 mt-2">Email</h5>
+                                <p class="text-lg text-secondary">
+                                    <a href="mailto:ayotechcorp@gmail.com" class="hover:underline">ayotechcorp@gmail.com</a>
+                                </p>
+                            </div>
+
+                            <!-- Social Section -->
+                            <div>
+                                <div class="flex justify-center mb-4">
+                                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-share-alt text-3xl text-primary"></i>
+                                    </div>
+                                </div>
+                                <h5 class="text-xl font-semibold text-gray-900 mt-2">Follow Us</h5>
+                                <div class="social-links mt-4 flex justify-center gap-6">
+                                    <a href="https://tr.linkedin.com/company/ayotechsoftware" class="text-gray-500 hover:text-secondary transition-colors" target="_blank" aria-label="LinkedIn">
+                                        <i class="fab fa-linkedin text-4xl"></i>
+                                    </a>
+                                    <!-- Add other social links here -->
+                                    <!-- Example:
+                                    <a href="#" class="text-gray-500 hover:text-secondary transition-colors" target="_blank" aria-label="Twitter">
+                                        <i class="fab fa-twitter text-4xl"></i>
+                                    </a>
+                                    -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- #contact -->
+
+    </main>
+
+    <!--==========================
+      Footer
+    ============================-->
+    <footer id="footer" class="bg-gray-800 py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="copyright text-gray-400">
+                        &copy; Copyright <strong>AyoTech</strong>. All Rights Reserved
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- #footer -->
+
+    <!-- Back to Top Button (Optional but nice) -->
+    <a href="#intro" id="back-to-top" class="scrollto fixed bottom-4 right-4 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-secondary transition-all opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        $(document).ready(function () {
+            // Smooth scroll for nav links
+            $("#header .main-nav a.scrollto, #mobile-menu a.scrollto-mobile, a.scrollto").on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    var headerHeight = $('#header').outerHeight() || 0;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - headerHeight
+                    }, 800, 'easeInOutExpo', function () {
+                        // Optional: Add hash to URL
+                        // window.location.hash = hash;
+                    });
+
+                    // Close mobile menu on click
+                    if ($('#mobile-menu').is(':visible')) {
+                        $('#mobile-menu').slideUp();
+                    }
+                    
+                    // Update active state in nav
+                    $('.main-nav li, #mobile-menu li').removeClass('active');
+                    $(this).closest('li').addClass('active');
+                }
+            });
+
+            // Mobile menu toggle
+            $('#mobile-menu-btn').on('click', function() {
+                $('#mobile-menu').slideToggle();
+            });
+
+            // Back to top button
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#back-to-top').removeClass('opacity-0 invisible').addClass('opacity-100 visible');
+                } else {
+                    $('#back-to-top').removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+                }
+            });
+            
+            // Header scroll effect (optional: add slight transparency)
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) {
+                    $('#header').addClass('shadow-xl');
+                } else {
+                    $('#header').removeClass('shadow-xl');
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
